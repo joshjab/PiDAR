@@ -1,6 +1,8 @@
 [submodule "submodules/YDLidar-SDK"]
 	path = submodules/YDLidar-SDK
 	url = https://github.com/YDLIDAR/YDLidar-SDK.git
-[submodule "submodules/ydlidar_ros_driver"]
-	path = submodules/ydlidar_ros_driver
-	url = https://github.com/YDLIDAR/ydlidar_ros_driver.git
+
+[submodule "submodules/ydlidar_ros2_driver"]
+	path = submodules/ydlidar_ros2_driver
+	url = https://github.com/YDLIDAR/ydlidar_ros2_driver.git
+	branch = humble

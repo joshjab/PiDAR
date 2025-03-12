@@ -38,7 +38,8 @@ This project runs on the following hardware:
 - **Python:** 3.10+
 - **Additional Packages:**
   - `ros-humble-desktop`
-  - `x11-apps`, `xauth`, `openbox`
+  - `ros-humble-cartographer`, `ros-humble-cartographer`
+  - `ydlidar-ros` - Built from source
 
 # How Does it Work?
 

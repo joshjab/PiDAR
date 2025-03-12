@@ -30,7 +30,7 @@ sudo apt update
 sudo apt upgrade -y
 
 # ------------------------------------------------
-# Step 2: Install Required System Dependencies
+# Step 2: Install Required System Dependencies and Docker for Webviz
 # ------------------------------------------------
 echo "Installing essential dependencies..."
 sudo apt install -y \
@@ -42,7 +42,8 @@ sudo apt install -y \
     x11-apps xauth xorg openbox \
     net-tools \
     htop \
-    git
+    git \
+    docker
 
 # ------------------------------------------------
 # Step 3: Add ROS 2 Repositories and Keys
@@ -60,7 +61,7 @@ echo "deb [signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://package
 # ------------------------------------------------
 echo "Updating package lists and installing ROS 2 Humble..."
 sudo apt update
-sudo apt install -y ros-humble-desktop
+sudo apt install -y ros-humble-desktop ros-dev-tools ros-humble-cartographer ros-humble-cartographer-ros
 
 # ------------------------------------------------
 # Step 5: Initialize rosdep (Dependency Manager)
