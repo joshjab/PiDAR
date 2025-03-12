@@ -47,6 +47,12 @@ This project uses the following hardware:
 ## Why Bother?
 Because I have too many random robotics components collecting dust in my garage, and LIDAR is cool :).
 
+## Basic Concept:
+The stepper motor rotates the YDLidar X2.
+The LiDAR continuously scans its 2D surroundings.
+The Pi3DLidar software synchronizes the scans with rotation angles.
+ROS 2 Cartographer stitches the scans into a 3D map.
+
 # Setup
 
 ## ⚙️ Raspberry Pi and Software Setup
@@ -78,11 +84,22 @@ For convenience, there is a bash script to install the necessary dependencies. O
 util/install_ros.sh
 ```
 
-### Install/Open Foxbridge Studio
-**TODO**
+### 4️⃣  Install/Open Foxbridge Studio
+Foxglove Studio provides a web-based ROS visualization tool. Install it on your remote computer using:
+
+```
+snap install foxglove-studio
+```
 
 ### Verify ROS and Foxbridge Studio Operation
 Now that all the dependencies are set up, we want to just verify basic operation of ROS and the install of the modules. 
+
+1. Run foxglove-studio on your main computer. `Open Connection` to your Raspberry Pi's address above at port `8765`.
+2. While SSH'ed into your Pi, run the following:
+```
+```
+
+Your LIDAR should start spinning, and if networked correctly, the scan data should display on Foxglove Studio. Feel free to play around with the display settings here.
  
 If you run into errors here, see the [Troubleshooting](#-troubleshooting) section.
 
@@ -91,24 +108,36 @@ If you run into errors here, see the [Troubleshooting](#-troubleshooting) sectio
 Your Pi should now be ready to go! Now we can finally set up the Pi3DLidar as a `systemd` service so it will start up whenever the Pi is powered on.
 
 ## Enclosure
-**TODO**: Guide and resources for printing and mounting the enclosure and stand.
+The project includes 3D-printed parts for a structured mounting solution under `/models`.
 
-## Hardware Setup
-**TODO**: Describe the wiring for the stepper motor
+1. Print the mount and rotating platform from the /models folder.
+2. Assemble the LiDAR and stepper motor securely.
+
+### Stepper Motor Wiring
+**TODO Under 3D mapping**
 
 # 🚀 SLAM Basic Usage Guide
 
-**TODO**: 
+### **Starting SLAM Mapping**
+```bash
+ros2 launch pi3dlidar slam.launch.py
+```
+To visualize the map in Foxglove:
+1. Open Foxglove Studio.
+2. Connect to the **ROS 2 Foxglove bridge**.
+3. Subscribe to **/scan** and **/tf** topics.
+
+### **Saving and Loading Maps**
+```bash
+ros2 run map_server map_saver --save-map my_map
+ros2 launch pi3dlidar load_map.launch.py map:=my_map
+```
 
 # 🚀 3D Mapping Basic Usage Guide
 **TODO**
 
-## 🚀 Usage Guide (Detailed Wiki)
-
-**TODO**: 
 
 # ❗ Troubleshooting
-**TODO**
 
 **1. ROS 2 Communication Issues**
 - Check network settings and multicast permissions.
