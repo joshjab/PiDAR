@@ -1,0 +1,11 @@
+[Unit]
+Description=PiDAR Autostart Service
+After=network.target
+
+[Service]
+ExecStart=/home/joshjab/slam_start.sh
+Restart=always
+User=joshjab
+
+[Install]
+WantedBy=multi-user.target

@@ -1,9 +1,11 @@
-# Pi3DLidar
+# Pi3DLidar 🚨 
+
+![CAD](/img/CAD.png)
 
 ## 🛠️ Project Overview
-This repository contains code, configurations, 3D Models, and documentation for creating a 3D room mapping system using **ROS 2 Humble Hawksbill**, **Raspberry Pi 3B+**, and a **YDLIDAR X2**. The system is based on **Ubuntu 22.04 Server**, since the 3B+ does not have the RAM to run any Ubuntu Desktop applications and will primarily be interacted with through an X11 session.
+This repository contains code, configurations, 3D Models, and documentation for using a 2D spinning LIDAR to perform SLAM (Simultaneous Location and Mapping) and 3D room mapping (*in progress*)  using **ROS 2 Humble Hawksbill**, **Raspberry Pi 3B+**, and a **YDLIDAR X2**. The system is based on **Ubuntu 22.04 Server**, since the 3B+ does not have the RAM to run any Ubuntu Desktop applications and will primarily be interacted with through [Foxbridge Studio](https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge).
 
-**TODO: Pretty picture gif here**
+
 
 ## 📖 Table of Contents
 - [Project Overview](#-project-overview)
@@ -19,7 +21,7 @@ This repository contains code, configurations, 3D Models, and documentation for 
 
 
 ## 🔌 Hardware Components
-This project runs on the following hardware:
+This project uses the following hardware:
 
 | Component        | Description                     |
 |-------------------|---------------------------------|
@@ -28,9 +30,8 @@ This project runs on the following hardware:
 | Micro-USB Adapters     | 2x PWR, 1x Data      |
 | [YDLidar X2](https://www.amazon.com/SmartFly-info-YDLIDAR-Scanner-Ranging/dp/B07W613C1K?dib=eyJ2IjoiMSJ9.8PG4-1hWigQu-gsvl8iE5Yif00ngk04n3Kx6fCfFHOCmxTAMrObxOLjcjGw7G7HifXIikd7D167cP6B2P4rhHxMCMrxS1A6YWC4wVxMNii-qXfTaS4He9nga8KHTqH23LpdI8J26UPH6n54EDMCEh81pi2U39Cid0A038iVFCTNJlk-nZyZOVN6x5vKO5q3zoPnwSr_MiNDek5POyoj0NzbPx2pxq_Aw-5dty1qFRjYBmo7JClxzuLLzUA4oz3Ol5nk0k7Msv8LnrTQdyChFQw.Mn1ZRxb2oOb1J4asP6YPO_T4NM9FtmchY9i6onNb3L4&dib_tag=se&keywords=ydlidar&qid=1739663408&s=electronics&sr=1-8) | Primary Component for this project      |
 | [5V Stepper Motor](https://www.amazon.com/dp/B015RQ97W8?ref_=ppx_hzsearch_conn_dt_b_fed_asin_title_1) | Any stepper motor and driver will do, this one had the words 'Arduino' and 'RPi' attached to it. |
+| 3D Printed Components | These are located in [/models](/models)
 | (Optional) 8000mAH USB Battery Pack | You can use a few USB wall plugs just as well, but I liked the idea of making it portable. |
-
-**Additional Notes:** Add any custom sensor or actuator details here.
 
 ## 🖥️ Software Requirements
 - **Operating System:** Ubuntu 22.04 Server (64-bit)
@@ -77,9 +78,12 @@ For convenience, there is a bash script to install the necessary dependencies. O
 util/install_ros.sh
 ```
 
-### Verify ROS and X11 Operation
-Now that all the dependencies are set up, we want to just verify basic operation of ROS and our X11 setup.
+### Install/Open Foxbridge Studio
+**TODO**
 
+### Verify ROS and Foxbridge Studio Operation
+Now that all the dependencies are set up, we want to just verify basic operation of ROS and the install of the modules. 
+ 
 If you run into errors here, see the [Troubleshooting](#-troubleshooting) section.
 
 ### Install Pi3DLidar Service
@@ -90,26 +94,23 @@ Your Pi should now be ready to go! Now we can finally set up the Pi3DLidar as a 
 **TODO**: Guide and resources for printing and mounting the enclosure and stand.
 
 ## Hardware Setup
-**TODO**: Stuff about plugging in LIDAR and Stepper motor. Maybe some crazy I2C stuff for an accelerometer.
+**TODO**: Describe the wiring for the stepper motor
 
-# 🚀 Basic Usage Guide
+# 🚀 SLAM Basic Usage Guide
 
 **TODO**: 
+
+# 🚀 3D Mapping Basic Usage Guide
+**TODO**
 
 ## 🚀 Usage Guide (Detailed Wiki)
 
 **TODO**: 
 
 # ❗ Troubleshooting
+**TODO**
 
-**1. SSH X11 Forwarding Not Working**
-- Ensure the X server is running on the client machine.
-- Verify the `DISPLAY` environment variable is set:
-  ```bash
-  echo $DISPLAY
-  ```
-
-**2. ROS 2 Communication Issues**
+**1. ROS 2 Communication Issues**
 - Check network settings and multicast permissions.
 - Use `ros2 doctor --report` to diagnose common issues.
 

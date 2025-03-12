@@ -43,7 +43,7 @@ sudo apt install -y \
     net-tools \
     htop \
     git \
-    docker
+    docker 
 
 # ------------------------------------------------
 # Step 3: Add ROS 2 Repositories and Keys
@@ -62,7 +62,7 @@ echo "deb [signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://package
 echo "Updating package lists and installing ROS 2 Humble..."
 sudo apt update
 sudo apt install -y ros-humble-desktop ros-dev-tools ros-humble-cartographer ros-humble-cartographer-ros
-
+sudo apt install -y ros-humble-foxglove-bridge
 # ------------------------------------------------
 # Step 5: Initialize rosdep (Dependency Manager)
 # ------------------------------------------------
