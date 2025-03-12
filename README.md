@@ -5,7 +5,7 @@
 ## 🛠️ Project Overview
 This repository contains code, configurations, 3D Models, and documentation for using a 2D spinning LIDAR to perform SLAM (Simultaneous Location and Mapping) and 3D room mapping (*in progress*)  using **ROS 2 Humble Hawksbill**, **Raspberry Pi 3B+**, and a **YDLIDAR X2**. The system is based on **Ubuntu 22.04 Server**, since the 3B+ does not have the RAM to run any Ubuntu Desktop applications and will primarily be interacted with through [Foxbridge Studio](https://docs.foxglove.dev/docs/connecting-to-data/ros-foxglove-bridge).
 
-
+![SLAM](/img/slam.gif)
 
 ## 📖 Table of Contents
 - [Project Overview](#-project-overview)
