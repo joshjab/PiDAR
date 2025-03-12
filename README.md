@@ -1,4 +1,4 @@
-# Pi3DLidar 🚨 
+# PiDAR 🚨 
 
 ![CAD](/img/CAD.png)
 
